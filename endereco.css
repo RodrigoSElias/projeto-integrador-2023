@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: aquamarine;
+    background: url(../Imagens/fundo2.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    display: block;
+}
+
+div#form_fundo{
+    backdrop-filter: blur(10%);
+    background-color: rgb(168, 219, 175);    
+    margin: 10% 25% 25% 25%;
+    text-align: center;
+    border-radius: 20px;
+    font-weight: bold ;
+    box-shadow: 2px 5px 5px black;
+
+
+}
+
+div#form_frente{
+    background-color: white;
+    margin: 10px;
+    text-align: center;
+    border-radius: 20px;
+    font-weight: bold ;
+    box-shadow: 2px 5px 5px black;
+    padding: 20px;
+
+}
+
+.mapa iframe{
+    width: 100%;
+}
+
+label{
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 20px;
+
+}
+
+input{
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+input:focus{
+    background-color: aquamarine;
+    color: black;
+
+}
+
+button{
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: darkcyan;
+    color: white;
+    
+}
+
+button:hover{
+    background-color: white;
+    color: black;
+    font-size: 25px;
+    cursor: pointer;
+
+}
+
+
+
+#map {
+    height: 80px;
+    width: 100%;
+    margin-top: 20px;
+}
