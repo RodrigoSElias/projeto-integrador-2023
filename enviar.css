@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #a3a08eea;
+    text-align: center;
+    background-color: aquamarine;
+    background: url(../Imagens/fundo1.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    display: block;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+label {
+    display: inline-block;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #87b3d1;
+    color: #fff;
+    cursor: pointer;
+}
+
+#upload-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px;
+}
+
+#enviarBtn {
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: darkcyan;
+    color: white;
+}
+
+button:hover{
+    background-color: white;
+    color: black;
+    font-size: 25px;
+    cursor: pointer;
+
+}
