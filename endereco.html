@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Formulário de Endereço</title>
+    <link rel="stylesheet" href="../static/css/endereco.css">
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs55RKWSKWr1ruWVN9_0hPUhxqtYz27Lc&libraries=places" defer></script>
+
+</head>
+
+<body>
+    <div id="form_fundo">
+
+        <h1>Formulário de Endereço</h1>
+
+        <div id="form_frente">
+
+            <p>Forneça o endereço do local onde é nescessário a manutenção da fibra ótica e clique em "Próximo" para continuar.</p><br><br>
+
+            <form>
+                <label for="cep">CEP:</label>
+                <input type="text" id="cep" placeholder="Digite o CEP" required><br><br>
+
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" placeholder="Rua, Bairro, Cidade, Estado" required><br><br>
+
+                <label for="numero">Número:</label>
+                <input type="text" id="numero" placeholder="Digite o número" required><br><br>
+
+                <button id="proximoBtn">Próximo</button><br><br>
+            </form>
+
+            <div class="mapa">
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29203.6297655416!2d-45.38901287480042!3d-23.80245973261066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94d299a1e1b58951%3A0xdb1cb1ae3f4ba322!2sIlhabela%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1699714857319!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            </div>
+
+            <script>
+                document.getElementById('proximoBtn').addEventListener('click', function () {
+                    // Adicione aqui o código para navegar para a próxima página ou realizar outras ações.
+                    window.location.href = 'enviar.html';
+
+                    // Exemplo de código para obter os detalhes do endereço usando a API do Google Maps
+                    var geocoder = new google.maps.Geocoder();
+                    var enderecoInput = document.getElementById('endereco').value;
+
+                    geocoder.geocode({ 'address': enderecoInput }, function (results, status) {
+                        if (status === 'OK') {
+                            // Exemplo: recupera o nome da rua, bairro, cidade e estado
+                            var rua = results[0].address_components.find(component => component.types.includes('route')).long_name;
+                            var bairro = results[0].address_components.find(component => component.types.includes('sublocality')).long_name;
+                            var cidade = results[0].address_components.find(component => component.types.includes('administrative_area_level_2')).long_name;
+                            var estado = results[0].address_components.find(component => component.types.includes('administrative_area_level_1')).short_name;
+
+                            // Exemplo: exibe os detalhes no console (substitua por sua lógica)
+                            console.log('Rua:', rua);
+                            console.log('Bairro:', bairro);
+                            console.log('Cidade:', cidade);
+                            console.log('Estado:', estado);
+                        } else {
+                            console.error('Erro ao geocodificar o endereço:', status);
+                        }
+                    });
+                });
+            </script>
+
+            
+        </div>
+
+    </div>    
+</body>
+
+</html>
