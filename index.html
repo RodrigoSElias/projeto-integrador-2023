@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+
+<body>
+    
+    {% set menssagem = get_flashed_messages() %}
+    {% if menssagem %}
+    <div class="flash_alerta">
+        {{menssagem[0]}}
+    </div>
+    {% endif %}
+
+    <div id="form_fundo">
+        <h1>Manutenção de Fibra Ótica</h1>
+        
+        <div id="form_frente">
+
+        <form action="/autenticar" method="post">
+            <label for="nome">Usuário:</label>
+            <input type="text" id="nome" name="nome" required placeholder="Digite seu nome"><br><br>
+            <label for="senha">Senha:</label>
+            <input type="senha" id="senha" name="senha" required placeholder="Digite sua senha"><br><br>
+            <button type="submit">Entrar</button>
+        </form><br>
+        <a href="{{ url_for('cadastro') }}">Cadastrar</a>
+    
+    
+    </div>
+
+    </div>
+
+
+</body>
+
+</html>
