@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Formulário de Envio de Imagens</title>
+    <link rel="stylesheet" href="../static/css/enviar.css">
+
+</head>
+
+
+<body>
+    <h1>Formulário de Envio de Imagens</h1>
+    <p>Forneça uma descrição e faça upload de até 4 imagens.</p>
+
+    <form id="uploadForm">
+        <h4 for="descricao">Descrição:</h4>
+        <textarea id="descricao" rows="5" cols="100" placeholder="Digite a descrição aqui" required></textarea><br><br>
+
+        <label for="imagem1">Imagem 1</label>
+        <input type="file" id="imagem1" accept="image/*" onchange="previewImage(this, 'preview1')">
+        <div id="preview1"></div><br>
+
+        <label for="imagem2">Imagem 2</label>
+        <input type="file" id="imagem2" accept="image/*" onchange="previewImage(this, 'preview2')">
+        <div id="preview2"></div><br>
+
+        <label for="imagem3">Imagem 3</label>
+        <input type="file" id="imagem3" accept="image/*" onchange="previewImage(this, 'preview3')">
+        <div id="preview3"></div><br>
+
+        <label for="imagem4">Imagem 4</label>
+        <input type="file" id="imagem4" accept="image/*" onchange="previewImage(this, 'preview4')">
+        <div id="preview4"></div><br><br>
+
+        <button type="button" id="enviarBtn">Enviar</button>
+    </form>
+
+    <script>
+        function previewImage(input, previewId) {
+            var preview = document.getElementById(previewId);
+            while (preview.firstChild) {
+                preview.removeChild(preview.firstChild);
+            }
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    var img = document.createElement("img");
+                    img.src = e.target.result;
+                    img.alt = "Imagem de pré-visualização";
+                    preview.appendChild(img);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        document.getElementById('enviarBtn').addEventListener('click', function () {
+            // Adicione aqui o código para enviar as imagens.
+
+
+            
+            // Este exemplo apenas exibe uma mensagem no console.
+            console.log('Imagens enviadas!');
+        });
+    </script>
+</body>
+
+</html>
